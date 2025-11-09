@@ -9,42 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var historyTextView: UITextView!
-    @IBOutlet weak var subOneButton: UIButton!
-    @IBOutlet weak var addOneButton: UIButton!
-    @IBOutlet weak var resetCounterButton: UIButton!
+    @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var historyTextView: UITextView!
+    @IBOutlet private weak var subOneButton: UIButton!
+    @IBOutlet private weak var addOneButton: UIButton!
+    @IBOutlet private weak var resetCounterButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     private var counter: Int = 0 {
         didSet {
             counterLabel.text = "\(counter)"
         }
-    }
-    
-    @IBAction func subOne(_ sender: UIButton) {
-        
-        if counter > 0 {
-            counter -= 1
-            printValueChanged()
-        } else {
-            printSubZero()
-        }
-        
-    }
-    
-    @IBAction func addOne(_ sender: UIButton) {
-        
-        counter += 1
-        printValueChanged()
-        
-    }
-    
-    
-    @IBAction func resetCounter(_ sender: UIButton) {
-        
-        counter = 0
-        printResetCounter()
-        
     }
     
     private func printValueChanged(){
@@ -77,12 +55,31 @@ class ViewController: UIViewController {
         
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBAction private func subOne(_ sender: UIButton) {
+        
+        if counter > 0 {
+            counter -= 1
+            printValueChanged()
+        } else {
+            printSubZero()
+        }
+        
     }
-
+    
+    @IBAction private func addOne(_ sender: UIButton) {
+        
+        counter += 1
+        printValueChanged()
+        
+    }
+    
+    
+    @IBAction private func resetCounter(_ sender: UIButton) {
+        
+        counter = 0
+        printResetCounter()
+        
+    }
 
 }
 
